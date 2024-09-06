@@ -28,7 +28,9 @@ class CustomVideoCard extends StatelessWidget {
             height: 180,
             width: 280,
             decoration: BoxDecoration(
-                image: DecorationImage(image: NetworkImage(bgurl))),
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                    image: NetworkImage(bgurl), fit: BoxFit.fill)),
             child: Padding(
               padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
               child: Column(
