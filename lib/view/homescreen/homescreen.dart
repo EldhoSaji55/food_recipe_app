@@ -265,7 +265,7 @@ class _categoryCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Text(
-                          time,
+                          "Time",
                           style: TextStyle(
                               color: ColorConstants.lightGray,
                               fontSize: 12,
@@ -280,7 +280,7 @@ class _categoryCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "10 Mins",
+                            time,
                             style: TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.w600),
                           ),

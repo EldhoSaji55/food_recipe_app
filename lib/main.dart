@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sample_app/view/onboarding_screen/onboardingscreen.dart';
+import 'package:sample_app/view/splash_screen/splash_screen.dart';
 
 void main(List<String> args) {
   runApp(FoodRecipeApp());
@@ -11,7 +11,7 @@ class FoodRecipeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Onboardingscreen(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
