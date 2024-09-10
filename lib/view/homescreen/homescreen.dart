@@ -222,7 +222,6 @@ class _categoryCard extends StatelessWidget {
   String title;
   String time;
   _categoryCard({
-    super.key,
     required this.category,
     required this.avatarImage,
     required this.title,
