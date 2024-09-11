@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_app/dummy_db.dart';
+import 'package:sample_app/utils/constants/color_constants.dart';
 import 'package:sample_app/view/global_widgets/custom_video_card.dart';
 
 import 'package:sample_app/view/recipeDetailPage/recipeDetailPage.dart';
@@ -13,16 +14,48 @@ class BookmarkScreens extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 130,
           title: Padding(
-            padding: EdgeInsets.only(top: 30, left: 22, right: 22, bottom: 10),
-            child: Text(
-              "Saved recipes",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            padding: EdgeInsets.only(top: 30, left: 8, right: 22, bottom: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Saved recipes",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                TabBar(
+                  isScrollable: false,
+                  dividerColor: Colors.transparent,
+                  tabAlignment: TabAlignment.fill,
+                  unselectedLabelColor: ColorConstants.primaryColor,
+                  labelColor: ColorConstants.mainWhite,
+                  labelStyle:
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicator: BoxDecoration(
+                    color: ColorConstants.primaryColor,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  tabs: [
+                    Tab(
+                      child: Text("Video"),
+                    ),
+                    Tab(
+                      child: Text("Recipe"),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(20.0),
           child: ListView.separated(
               itemBuilder: (context, index) => CustomVideoCard(
                     onCardTapped: () {
