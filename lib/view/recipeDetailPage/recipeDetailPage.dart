@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:sample_app/utils/constants/color_constants.dart';
 import 'package:sample_app/view/global_widgets/custom_button.dart';
 import 'package:sample_app/view/global_widgets/cutom_list_tile.dart';
@@ -71,7 +72,13 @@ class Recipedetailpage extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 12),
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) => customListTile(),
+            itemBuilder: (context, index) => customListTile(
+                  prefix_Icon: HugeIcon(
+                      icon: HugeIcons.strokeRoundedCoffee01,
+                      color: ColorConstants.primaryColor),
+                  card_title: "Bread",
+                  card_suffix: "200g",
+                ),
             separatorBuilder: (context, index) => SizedBox(
                   height: 12,
                 ),
