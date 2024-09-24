@@ -166,6 +166,8 @@ class Recipedetailpage extends StatelessWidget {
             ],
           ),
           trailing: CustomButton(
+            height: 35,
+            width: 80,
             text: "Follow",
             onButtonPressed: () {},
           ),

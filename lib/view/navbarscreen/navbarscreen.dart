@@ -3,6 +3,7 @@ import 'package:sample_app/utils/constants/color_constants.dart';
 import 'package:sample_app/view/bookmarks_screen/bookmark_screens.dart';
 import 'package:sample_app/view/create_recipe_screen/create_recipe_screen.dart';
 import 'package:sample_app/view/homescreen/homescreen.dart';
+import 'package:sample_app/view/profile_screen/profileScreen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
   const BottomNavbarScreen({super.key});
@@ -19,9 +20,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     Container(
       color: Colors.blue,
     ),
-    Container(
-      color: Colors.amber[200],
-    ),
+    Profilescreen(),
   ];
 
   @override

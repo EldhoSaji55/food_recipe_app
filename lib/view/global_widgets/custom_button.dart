@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:sample_app/utils/constants/color_constants.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
-    required this.text,
-    this.onButtonPressed,
-    super.key,
-    this.height,
-    this.width,
-  });
+  CustomButton(
+      {required this.text,
+      this.onButtonPressed,
+      super.key,
+      this.height,
+      this.width,
+      this.backgroundColor,
+      this.fontcolor});
   final String text;
   final double? height;
   final double? width;
   final void Function()? onButtonPressed;
+  Color? backgroundColor = ColorConstants.primaryColor;
+  Color? fontcolor = ColorConstants.mainWhite;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +27,18 @@ class CustomButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: ColorConstants.primaryColor,
+          border: Border.all(color: ColorConstants.primaryColor),
+          color: backgroundColor ?? ColorConstants.primaryColor,
         ),
-        child: Text(
-          text,
-          style: TextStyle(
-              color: ColorConstants.mainWhite,
-              fontWeight: FontWeight.w600,
-              fontSize: 14),
+        child: Center(
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: fontcolor ?? ColorConstants.mainWhite,
+                fontWeight: FontWeight.w600,
+                fontSize: 14),
+          ),
         ),
       ),
     );

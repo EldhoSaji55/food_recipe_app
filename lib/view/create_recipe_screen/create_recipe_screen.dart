@@ -152,7 +152,7 @@ class CreateRecipeScreen extends StatelessWidget {
               height: 40,
             ),
             CustomButton(
-              height: 40,
+              height: 50,
               width: double.infinity,
               text: "Save my recipes",
             ),
