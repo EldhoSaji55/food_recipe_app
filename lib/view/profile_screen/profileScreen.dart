@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sample_app/dummy_db.dart';
 import 'package:sample_app/utils/constants/color_constants.dart';
+import 'package:sample_app/view/global_widgets/customRecipeCardWidget.dart';
 import 'package:sample_app/view/global_widgets/custom_button.dart';
+import 'package:sample_app/view/global_widgets/custom_video_card.dart';
 import 'package:sample_app/view/profile_screen/widgets/ProfileFollowersNumberSection.dart';
+import 'package:sample_app/view/recipeDetailPage/recipeDetailPage.dart';
 
 class Profilescreen extends StatelessWidget {
   const Profilescreen({super.key});
@@ -95,22 +99,53 @@ class Profilescreen extends StatelessWidget {
             SizedBox(
               height: 32,
             ),
-            Stack(children: [
-              Container(
-                width: double.infinity,
-                height: 200,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                        fit: BoxFit.cover)),
-              ),
-            ])
+            SizedBox(
+              height: 500,
+              child:
+                  TabBarView(children: [_VideoListView(), _RecipeListView()]),
+            )
           ],
         ),
       ),
     );
+  }
+
+  Widget _RecipeListView() {
+    return ListView.separated(
+        itemBuilder: (context, index) => CustomRecipeCardWidget(),
+        separatorBuilder: (context, index) => SizedBox(),
+        itemCount: 10);
+  }
+
+  Widget _VideoListView() {
+    return ListView.separated(
+        itemBuilder: (context, index) => CustomVideoCard(
+              onCardTapped: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Recipedetailpage(
+                              title: DummyDb.trendingNowList[index]["title"],
+                              rating: DummyDb.trendingNowList[index]["rating"],
+                              bgurl: DummyDb.trendingNowList[index]["imageurl"],
+                              profileurl: DummyDb.trendingNowList[index]
+                                  ["profileurl"],
+                              postedby: DummyDb.trendingNowList[index]
+                                  ["userName"],
+                            )));
+              },
+              width: double.infinity,
+              rating: DummyDb.trendingNowList[index]["rating"] ?? '',
+              videolength: DummyDb.trendingNowList[index]["duration"] ?? '',
+              bgurl: DummyDb.trendingNowList[index]["imageurl"] ?? '',
+              profileurl: DummyDb.trendingNowList[index]["profileurl"] ?? '',
+              dishdetails: DummyDb.trendingNowList[index]["title"] ?? '',
+              postedby: DummyDb.trendingNowList[index]["userName"] ?? '',
+            ),
+        separatorBuilder: (context, index) => SizedBox(
+              height: 16,
+            ),
+        itemCount: DummyDb.trendingNowList.length);
   }
 
   _ProfileFollowersSection() {
