@@ -100,7 +100,7 @@ class Profilescreen extends StatelessWidget {
               height: 32,
             ),
             SizedBox(
-              height: 500,
+              height: 298,
               child:
                   TabBarView(children: [_VideoListView(), _RecipeListView()]),
             )
